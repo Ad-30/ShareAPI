@@ -29,7 +29,9 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'd122-2401-4900-1c7b-6f05-f9df-f2be-46ef-93c2.ngrok-free.app',
-    '192.168.1.19'
+    '192.168.1.19',
+    '.vercel.app',
+    '.now.sh',
 ]
 
 
@@ -176,3 +178,7 @@ CRONJOBS = [
     ('*/1 * * * *',
      f'apis.cron.delete_expired_files >> {os.path.join(LOGS_DIR, "cron.log")} 2>&1'),
 ]
+
+
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
