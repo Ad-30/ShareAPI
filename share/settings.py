@@ -25,14 +25,7 @@ SECRET_KEY = "django-insecure-$@j(c5pyv$c$(omp24c5-^igz-*(ljxfehqm(+yjr09+pmg+%-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    'd122-2401-4900-1c7b-6f05-f9df-f2be-46ef-93c2.ngrok-free.app',
-    '192.168.1.19',
-    '.vercel.app',
-    '.now.sh',
-]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -46,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'corsheaders',
     "rest_framework",
+    "rest_framework.authtoken",
     "apis",
     'django_crontab',
     'django_cleanup',
@@ -133,7 +127,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_REPLACE_HTTPS_REFERER = True
+# CORS_ALLOW_CREDENTIALS = True
 # CORS_ORIGIN_WHITELIST = (
 #     'http://localhost:3000',
 #     'http://192.168.1.19:3000',
@@ -178,7 +172,9 @@ CRONJOBS = [
     ('*/1 * * * *',
      f'apis.cron.delete_expired_files >> {os.path.join(LOGS_DIR, "cron.log")} 2>&1'),
 ]
-
-
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_media/')
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+#     ]
+# }
