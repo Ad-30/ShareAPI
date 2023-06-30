@@ -140,19 +140,21 @@ ACCESS_CONTROL_ALLOW_ORIGIN = [
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOW_CREDENTIALS = True
 
 
 CORS_ORIGIN_ALLOW_ALL = True
 
 # CORS_ALLOW_CREDENTIALS = True
-# CORS_ORIGIN_WHITELIST = (
-#     'http://localhost:3000',
-#     'http://192.168.1.19:3000',
-#     'http://localhost:8000',
-#     'http://192.168.1.19:8000',
-# )
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+    'http://192.168.1.19:3000',
+    'http://localhost:8000',
+    'http://192.168.1.19:8000',
+    'https://ad-30.github.io/ShareFront',
+    'http://ad-30.github.io/ShareFront'
+]
 
 # CSRF_TRUSTED_ORIGINS = [
 #     'http://localhost:3000',
